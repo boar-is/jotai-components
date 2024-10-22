@@ -133,7 +133,7 @@ function Parent() {
 > Avoid using `atomic.create` inside render loops, as this will create a new component on every render.
 > Instead, move the `atomic.create` call outside the component or use techniques to ensure a stable reference.
 
-> [!WARNING]
+> [!WARNING]  
 > While this example uses [Framer Motion](https://www.framer.com/motion/) with atoms to update the `animate` prop,
 > which can trigger re-renders, it may not be suitable for continuous animation values.
 > In those cases, consider using [MotionValues](https://www.framer.com/motion/motionvalue/).
