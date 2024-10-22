@@ -13,11 +13,7 @@ import {
 } from 'react'
 
 const isAtom = (obj: unknown) =>
-  obj !== null &&
-  typeof obj === 'object' &&
-  'init' in obj &&
-  'read' in obj &&
-  'write' in obj
+  obj !== null && typeof obj === 'object' && 'read' in obj
 
 const separate = <T>(array: Array<T>, predicate: (item: T) => boolean) =>
   array.reduce(
