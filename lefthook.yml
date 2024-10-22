@@ -1,0 +1,7 @@
+pre-push:
+  parallel: true
+  commands:
+    biome-check:
+      run: pnpm biome check --no-errors-on-unmatched --files-ignore-unknown=true {push_files}
+    typescript-check:
+      run: pnpm tsc --noEmit

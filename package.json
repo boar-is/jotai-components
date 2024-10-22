@@ -1,0 +1,37 @@
+{
+  "name": "jotai-components",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "👻⚛",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["jotai", "react", "proxy", "state"],
+  "author": "boaris <boriszubc@gmail.com>",
+  "contributors": ["Boaris (https://github.com/boar-is)"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boar-is/jotai-components.git"
+  },
+  "source": "./src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "jotai": "^2",
+    "lefthook": "^1",
+    "react": "^18",
+    "tsup": "^8",
+    "typescript": "^5"
+  },
+  "peerDependencies": {
+    "jotai": ">=2.0.0"
+  }
+}
