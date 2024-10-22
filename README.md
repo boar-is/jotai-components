@@ -1,7 +1,5 @@
 # jotai-components 👻⚛
 
-<hr/>
-
 `jotai-components` allows you to pass [Jotai](https://jotai.org/) atoms as props directly to React components, making your UI reactive without extra boilerplate:
 
 ```tsx

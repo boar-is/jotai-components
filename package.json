@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["jotai", "react", "proxy", "state"],
+  "keywords": ["jotai", "react", "state-management"],
   "author": "boaris <boriszubc@gmail.com>",
   "contributors": ["Boaris (https://github.com/boar-is)"],
   "repository": {
