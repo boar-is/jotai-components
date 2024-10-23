@@ -1,2 +1,1 @@
-export { atomic } from './atomic'
-export { AtomicMemo } from './atomic-memo'
+export { jotai } from './components'

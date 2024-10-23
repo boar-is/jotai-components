@@ -7,8 +7,8 @@ const styleAtom = atom({ width: 100 })
 
 // ✅ This component will not re-render
 function Parent() {
-  // ✅ `atomic.div` will re-render whenever styleAtom's value changes
-  return <atomic.div style={styleAtom}>example</atomic.div>
+  // ✅ `jotai.div` will re-render whenever styleAtom's value changes
+  return <jotai.div $style={styleAtom}>example</jotai.div>
 }
 ```
 
@@ -83,16 +83,16 @@ without needing to create separate child components for each atom:
 
 ```tsx
 import { atom } from 'jotai'
-import { atomic } from 'jotai-components'
+import { jotai } from 'jotai-components'
 
 const styleAtom = atom({ width: 100 })
 
 // 🤩 Parent does not re-render, and atoms can be passed directly as props
 function Parent() {
   return (
-    <atomic.div className="ordinary-props-as-well" style={styleAtom}>
+    <jotai.div className="ordinary-props-as-well" $style={styleAtom}>
       example
-    </atomic.div>
+    </jotai.div>
   )
 }
 ```
@@ -101,51 +101,19 @@ This solution simplifies the code by removing the need for `useAtomValue` and se
 
 ## API
 
-### `atomic.<tag>`
+### `jotai.<tag>`
 
-Use `atomic.<tag>` to create components (e.g., `atomic.span`, `atomic.button`, etc.)
+Use `jotai.<tag>` to create components (e.g., `jotai.span`, `jotai.button`, etc.)
 that accept props either as regular values or as atoms (see the example above).
 
-### `atomic.create`
+### `jotai.memo`
 
-You can create atomic components around custom React components:
-
-```tsx
-import { motion } from 'framer-motion'
-import { atom } from 'jotai'
-import { atomic } from 'jotai-components'
-import { Button } from 'react-aria-components'
-
-const AtomicMotionButton = atomic.create(motion.create(Button))
-
-const motionPropsAtom = atom({ width: 100 })
-
-function Parent() {
-  return (
-    <AtomicMotionButton animate={motionPropsAtom} transition={{ duration: 1 }}>
-      example
-    </AtomicMotionButton>
-  )
-}
-```
-
-> [!CAUTION]  
-> Avoid using `atomic.create` inside render loops, as this will create a new component on every render.
-> Instead, move the `atomic.create` call outside the component or use techniques to ensure a stable reference.
-
-> [!WARNING]  
-> While this example uses [Framer Motion](https://www.framer.com/motion/) with atoms to update the `animate` prop,
-> which can trigger re-renders, it may not be suitable for continuous animation values.
-> In those cases, consider using [MotionValues](https://www.framer.com/motion/motionvalue/).
-
-### `AtomicMemo`
-
-Use `AtomicMemo` to render dynamic content from atoms.
-It accepts atoms that resolve to values conforming to the ReactNode type:
+Use `jotai.memo` to render dynamic content from atoms.
+It accepts atoms as children that resolve to values conforming to the ReactNode type:
 
 ```tsx
 import { atom } from 'jotai'
-import { AtomicMemo } from 'jotai-components'
+import { jotai } from 'jotai-components'
 
 const worldAtom = atom('World')
 
@@ -153,11 +121,43 @@ function Parent() {
   return (
     <div>
       {/* Hello, World! */}
-      Hello, <AtomicMemo>{worldAtom}</AtomicMemo>!
+      Hello, <jotai.memo>{worldAtom}</jotai.memo>!
     </div>
   )
 }
 ```
+
+### `jotai.create`
+
+You can create reactive components around custom React components:
+
+```tsx
+import { atom } from 'jotai'
+import { jotai } from 'jotai-components'
+import { motion } from 'framer-motion'
+import { Button } from 'react-aria-components'
+
+const JotaiMotionButton = jotai.create(motion.create(Button))
+
+const motionStyleAtom = atom({ width: 100 })
+
+function Parent() {
+  return (
+    <JotaiMotionButton transition={{ duration: 1 }} $animate={motionStyleAtom}>
+      example
+    </JotaiMotionButton>
+  )
+}
+```
+
+> [!CAUTION]  
+> Avoid using `jotai.create` inside render loops, as this will create a new component on every render.
+> Instead, move the `jotai.create` call outside the component or use techniques to ensure a stable reference.
+
+> [!WARNING]  
+> While this example uses [Framer Motion](https://www.framer.com/motion/) with atoms to update the `animate` prop,
+> which can trigger re-renders, it may not be suitable for continuous animation values.
+> In those cases, consider using [MotionValues](https://www.framer.com/motion/motionvalue/).
 
 ## License
 

@@ -1,7 +1,7 @@
 {
   "name": "jotai-components",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Jōtai utilities to reduce React boilerplate 👻⚛",
   "scripts": {
     "dev": "tsup --watch",
@@ -15,6 +15,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/boar-is/jotai-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/boar-is/jotai-components/issues"
   },
   "source": "./src/index.ts",
   "main": "./dist/index.js",
@@ -32,6 +35,19 @@
     "typescript": "^5"
   },
   "peerDependencies": {
+    "@types/react": ">=17.0.0",
+    "react": ">=17.0.0",
     "jotai": ">=2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "jotai": {
+      "optional": true
+    }
   }
 }
