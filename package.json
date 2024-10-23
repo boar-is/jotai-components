@@ -1,13 +1,14 @@
 {
   "name": "jotai-components",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Jōtai utilities to reduce React boilerplate 👻⚛",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
     "typecheck": "tsc --noEmit",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "lefthook install"
   },
   "keywords": ["jotai", "react", "state-management"],
   "author": "boaris <boriszubc@gmail.com>",
