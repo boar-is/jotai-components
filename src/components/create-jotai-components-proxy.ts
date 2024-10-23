@@ -2,7 +2,7 @@ import type { ElementType, JSX } from 'react'
 import { createJotaiComponent } from '~/components/create-jotai-component'
 import { JotaiMemo } from '~/components/jotai-memo'
 
-type ProxyValue = {
+export type ProxyValue = {
   memo: typeof JotaiMemo
   create: typeof createJotaiComponent
 } & {
