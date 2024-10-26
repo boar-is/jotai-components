@@ -1,7 +1,7 @@
 {
   "name": "jotai-components",
   "type": "module",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Jōtai utilities to reduce React boilerplate 👻⚛",
   "scripts": {
     "dev": "tsup --watch",
@@ -9,9 +9,15 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest"
   },
-  "keywords": ["jotai", "react", "state-management"],
+  "keywords": [
+    "jotai",
+    "react",
+    "state-management"
+  ],
   "author": "boaris <boriszubc@gmail.com>",
-  "contributors": ["Boaris (https://github.com/boar-is)"],
+  "contributors": [
+    "Boaris (https://github.com/boar-is)"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/boar-is/jotai-components.git"
@@ -22,7 +28,9 @@
   "source": "./src/index.ts",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "license": "MIT",
   "devDependencies": {
